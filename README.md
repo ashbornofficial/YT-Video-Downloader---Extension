@@ -74,13 +74,6 @@ Built using the modern **Chrome Extension Manifest V3** architecture.
   <img src="icon.png" width="120" alt="YT Video Downloader Icon">
 </p>
 
-> Add screenshots/GIFs of the extension here when publishing the project on GitHub.
-
-Example:
-
-```md
-![Extension Preview](screenshots/preview.png)
-```
 
 ---
 
