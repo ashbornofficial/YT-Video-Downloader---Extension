@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "YT Video Downloader",
+  "version": "1.0",
+  "description": "Download YouTube videos in a click. Powered by Ashborn.",
+  "homepage_url": "https://github.com/ashbornofficial",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_title": "YT Video Downloader",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "banner-tooltip.gif"
+      ],
+      "matches": [
+        "*://www.youtube.com/*"
+      ]
+    }
+  ]
+}

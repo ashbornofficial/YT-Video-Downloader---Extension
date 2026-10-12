@@ -1,0 +1,116 @@
+ytd-download-button-renderer-view-model,
+ytd-download-button-renderer,
+ytd-menu-service-item-download-renderer,
+#flexible-item-buttons > ytd-download-button-renderer {
+    display: none !important;
+}
+
+@keyframes ytvd-spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes ytvd-fade-border {
+    to { opacity: 0; }
+}
+
+#ytvd-download-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--yt-spec-text-primary, #7c7c7c);
+    height: 36px;
+    padding: 0 16px;
+    margin-left: 8px;
+    border-radius: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    overflow: hidden;
+    isolation: isolate;
+    border: none;
+}
+
+#ytvd-download-btn.shorts-mode {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-left: 0;
+    margin-top: 16px;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#ytvd-download-btn.shorts-mode span {
+    display: none;
+}
+
+#ytvd-download-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 500%;
+    background: conic-gradient(
+        #ff8a3d, #ffbe5a, #ff5e3a, #ffbe5a
+    );
+    animation: 
+        ytvd-spin 2s linear infinite, 
+        ytvd-fade-border 0.5s 2s forwards; 
+    z-index: -2;
+    opacity: 1;
+}
+
+#ytvd-download-btn::after {
+    content: "";
+    position: absolute;
+    top: 1px; bottom: 1px; left: 1px; right: 1px;
+    background-color: #f2f2f2; 
+    border-radius: 17px;
+    z-index: -1;
+}
+
+#ytvd-download-btn.shorts-mode::after {
+    border-radius: 50%;
+}
+
+#ytvd-download-btn span,
+#ytvd-download-btn svg {
+    position: relative; z-index: 1;
+}
+
+#ytvd-download-btn:hover::after { background-color: #e5e5e5; }
+
+#ytvd-download-btn svg {
+    margin-right: 6px; width: 24px; height: 24px;
+    fill: currentColor; pointer-events: none; display: block;
+}
+
+#ytvd-download-btn.shorts-mode svg {
+    margin-right: 0;
+}
+
+#ytvd-download-btn span { display: inline-block; margin-top: -1px; }
+
+html[dark] #ytvd-download-btn { color: #f1f1f1; }
+html[dark] #ytvd-download-btn::after { background-color: #373737; }
+html[dark] #ytvd-download-btn:hover::after { background-color: #4a4a4a; }
+
+.ytvd-floating-gif {
+    position: absolute;
+    z-index: 999999 !important;
+    height: 28px;
+    width: auto;
+    pointer-events: none;
+    opacity: 1;
+    animation: fadeOutGifBody 0.5s 2s forwards;
+}
+
+@keyframes fadeOutGifBody {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}

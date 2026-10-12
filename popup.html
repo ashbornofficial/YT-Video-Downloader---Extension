@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YT Video Downloader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <img src="icon.png" class="logo" alt="YT Video Downloader logo">
+      <h1>YT Video Downloader</h1>
+      <button id="settingsBtn" class="settings-btn" aria-label="Settings">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 7h9M17 7h3M4 17h3M11 17h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="15" cy="7" r="2.2" stroke="currentColor" stroke-width="2"/>
+          <circle cx="9" cy="17" r="2.2" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mainScreen" class="screen">
+      <p id="descText" class="desc">Select your preferred downloader:</p>
+
+      <select id="serviceSelect" class="dropdown" aria-label="Downloader service">
+        <option value="yout">Yout.com (Fast &amp; Clean)</option>
+        <option value="ss">SaveFrom (Classic)</option>
+        <option value="vd">VDYouTube (Alternative)</option>
+      </select>
+
+      <button id="downloadBtn" class="download-btn">
+        DOWNLOAD VIDEO
+      </button>
+
+      <div id="message" class="hidden"></div>
+    </div>
+
+    <div id="settingsScreen" class="screen hidden">
+      <div class="settings-header">
+        <button id="backBtn" class="back-btn" aria-label="Back">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <h2>Settings</h2>
+      </div>
+
+      <div class="settings-content">
+        <div class="setting-item">
+          <label for="settingsLangSelect" class="setting-label">Language</label>
+          <select id="settingsLangSelect" class="settings-dropdown">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="si">සිංහල</option>
+            <option value="ta">தமிழ்</option>
+          </select>
+        </div>
+
+        <div class="setting-section">
+          <div class="setting-item">
+            <div class="setting-row">
+              <label for="enableDownloadToggle" class="setting-label">Enable Popup Button</label>
+              <label class="toggle-switch">
+                <input type="checkbox" id="enableDownloadToggle">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-row">
+              <label for="showInVideoToggle" class="setting-label">Show Button under Video</label>
+              <label class="toggle-switch">
+                <input type="checkbox" id="showInVideoToggle">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span id="footerText" class="footer">Powered by Ashborn</span>
+      <a id="contactLink" class="contact-link" href="https://github.com/ashbornofficial" target="_blank" rel="noopener noreferrer" aria-label="Contact Developer">Contact Developer</a>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

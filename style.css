@@ -1,0 +1,318 @@
+/* YT Video Downloader — Powered by Ashborn
+   Palette: ash ink + ember */
+:root {
+  --ink: #15131d;
+  --cinder: #1f1c2b;
+  --raised: #2a2639;
+  --line: #3a3550;
+  --bone: #ece8f5;
+  --mute: #9a93b0;
+  --ember: #ff8a3d;
+  --ember-2: #ffbe5a;
+  --on-ember: #1a1208;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  width: 340px;
+  background-color: var(--ink);
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--bone);
+}
+
+.card {
+  padding: 20px 20px 0;
+  background: linear-gradient(180deg, var(--cinder) 0%, var(--ink) 100%);
+  position: relative;
+  border-top: 3px solid var(--ember);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  flex: none;
+}
+
+h1 {
+  flex: 1;
+  min-width: 0;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.2px;
+  color: var(--bone);
+}
+
+.settings-btn,
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  color: var(--mute);
+  display: inline-flex;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.settings-btn:hover,
+.back-btn:hover {
+  background-color: var(--raised);
+  color: var(--ember-2);
+}
+
+button:focus-visible,
+select:focus-visible,
+a:focus-visible,
+input:focus-visible + .toggle-slider {
+  outline: 2px solid var(--ember-2);
+  outline-offset: 2px;
+}
+
+.desc {
+  font-size: 13px;
+  color: var(--mute);
+  margin: 14px 0 16px;
+}
+
+.dropdown,
+.settings-dropdown {
+  width: 100%;
+  padding: 12px 36px 12px 14px;
+  background-color: var(--raised);
+  color: var(--bone);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ECE8F5%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px top 50%;
+  background-size: 10px auto;
+}
+
+.dropdown { margin-bottom: 16px; }
+
+.dropdown:focus,
+.settings-dropdown:focus {
+  border-color: var(--ember);
+}
+
+.dropdown option,
+.settings-dropdown option {
+  background-color: var(--cinder);
+  color: var(--bone);
+}
+
+.download-btn {
+  background: linear-gradient(90deg, var(--ember), var(--ember-2));
+  border: none;
+  padding: 14px;
+  width: 100%;
+  border-radius: 12px;
+  color: var(--on-ember);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: box-shadow 0.25s ease, transform 0.1s ease;
+  box-shadow: 0 6px 18px rgba(255, 138, 61, 0.25);
+}
+
+.download-btn:hover {
+  box-shadow: 0 8px 24px rgba(255, 138, 61, 0.45);
+}
+
+.download-btn:active {
+  transform: translateY(1px);
+}
+
+.download-btn.disabled,
+.download-btn[disabled] {
+  background: var(--raised);
+  color: var(--mute);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+  letter-spacing: 0.2px;
+}
+
+.hidden {
+  display: none;
+}
+
+#message {
+  margin-top: 14px;
+  background: rgba(255, 138, 61, 0.1);
+  color: var(--ember-2);
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  border: 1px solid rgba(255, 138, 61, 0.3);
+  text-align: center;
+}
+
+/* Footer: branding + contact */
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 20px -20px 0;
+  padding: 11px 20px;
+  border-top: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.18);
+  font-size: 11px;
+}
+
+.footer {
+  color: var(--mute);
+  font-weight: 500;
+}
+
+.contact-link {
+  color: var(--ember-2);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: var(--ember);
+  text-decoration: underline;
+}
+
+.screen {
+  display: block;
+}
+
+.screen.hidden {
+  display: none;
+}
+
+/* Settings screen */
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.settings-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--bone);
+}
+
+.settings-content {
+  padding: 0;
+}
+
+.setting-item {
+  margin-bottom: 18px;
+}
+
+.setting-item:last-child {
+  margin-bottom: 0;
+}
+
+.setting-label {
+  display: block;
+  font-size: 13px;
+  color: var(--bone);
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.setting-section {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 18px 0 0;
+  background-color: var(--cinder);
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.setting-row .setting-label {
+  margin-bottom: 0;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+  flex: none;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: var(--line);
+  transition: 0.25s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--bone);
+  transition: 0.25s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--ember);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(22px);
+  background-color: var(--on-ember);
+}
+
+input:disabled + .toggle-slider {
+  background-color: var(--raised);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
